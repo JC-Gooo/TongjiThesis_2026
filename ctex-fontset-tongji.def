@@ -17,13 +17,15 @@
     
     \setsansfont{arial.ttf}
       [ Path = {fonts/}, BoldFont = arialbd.ttf, ItalicFont = ariali.ttf, BoldItalicFont = arialbi.ttf ]
-    \setCJKsansfont[Path={fonts/}]{ SimHei.ttf }
+    % 注: 此处为 CJKsansfont(封面题目用) 和 pureheifamily(标题用) 补充 AutoFakeBold,
+    %     否则 "黑体二号加粗居中"(指南4.2)、"黑体三号加粗居中"(指南4.6) 的加粗不生效
+    \setCJKsansfont[Path={fonts/},AutoFakeBold=1.2]{ SimHei.ttf }
 
     \setmonofont{cour.ttf}
       [ Path = {fonts/}, BoldFont = courbd.ttf, ItalicFont = couri.ttf, BoldItalicFont = courbi.ttf ]
     \setCJKmonofont[Path={fonts/}]{ FangSong.ttf }
 
-    \newfontfamily\pureheifamily{SimHei.ttf}[Path={fonts/}]
+    \newfontfamily\pureheifamily{SimHei.ttf}[Path={fonts/},AutoFakeBold=1.2]
     \newCJKfontfamily[purehei]\pureheiti{SimHei.ttf}[Path={fonts/}]
     \def\phfamily{\pureheifamily\pureheiti}
 

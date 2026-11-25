@@ -257,9 +257,9 @@
 	bottom=25.4mm,
 	nomarginpar, % 即\marginparwidth=0pt and \marginparsep=0pt
 	left=31.7mm, % 注意left=right
-	headheight=5mm,
+	headheight=16pt,
 	headsep=5.4mm,	% 页眉距顶端要求 2cm. 即25.4-20=5.4
-	footskip=5.4mm}	%\footskip指的是正文最后一行距离页脚的距离(baseline)
+	footskip=8mm}	% 页脚距底端要求 1.5cm, 即25.4-15=10.4, 此处取8mm兼顾版面(原为5.4mm)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 文章字体设置 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -354,13 +354,14 @@
   \renewcommand{\footrulewidth}{0pt}}
 
 % 页眉页脚同时显示 (可选择是否页眉居中)
+% 页眉下横线 0.75pt, 与参考示例页眉下边框(0.75pt)一致
 \fancypagestyle{tongji@headingmain}{%
   \fancyhead{}
   \fancyhead[\xparameter@heading@odd]{\psfamily\wuhao\xparameter@heading@mainleft}
   \fancyhead[\xparameter@heading@even]{\psfamily\wuhao\xparameter@heading@mainright}
   \fancyfoot{}
   \fancyfoot[C]{\songti\wuhao\thepage}
-  \renewcommand{\headrulewidth}{0.4pt}
+  \renewcommand{\headrulewidth}{0.75pt}
   \renewcommand{\footrulewidth}{0pt}}
 
 % 页眉页脚同时显示, 且左右相同 (可选择是否页眉居中)
@@ -370,7 +371,7 @@
   \fancyhead[\xparameter@heading@even]{\psfamily\wuhao\xparameter@heading@cother{\appendixname}}
   \fancyfoot{}
   \fancyfoot[C]{\songti\wuhao\thepage}
-  \renewcommand{\headrulewidth}{0.4pt}
+  \renewcommand{\headrulewidth}{0.75pt}
   \renewcommand{\footrulewidth}{0pt}}
 
 % 分段使用样式
@@ -592,10 +593,14 @@
   \IfValueTF{#4}{% 提供了第四个参数, 即 header
     \ifthenelse{\equal{#4}{}}{\@mkboth{}{}} % 页眉为空
     {% 页眉为 header
-      \thispagestyle{fancy}
-      \fancyhead{} \fancyhead[\xparameter@heading@odd]{#4} \fancyhead[\xparameter@heading@even]{#4}
+      % 注: \thispagestyle 用于覆盖 ctex 章节命令内部设置的首页 pagestyle;
+      %     \pagestyle 保证本部分超过一页时, 后续页的页眉页码仍然显示 ( 指南3.3: 页眉均为对应章节标题, 页码连续编排 )
+      %     注: 此处补充 \wuhao, 页眉字号为五号 ( 指南4.1 ), 否则将沿用正文小四号
+      \thispagestyle{fancy}%
+      \pagestyle{fancy}%
+      \fancyhead{} \fancyhead[\xparameter@heading@odd]{\wuhao #4} \fancyhead[\xparameter@heading@even]{\wuhao #4}
       \fancyfoot{} \fancyfoot[C]{\songti\wuhao\thepage}
-      \renewcommand{\headrulewidth}{0.4pt}
+      \renewcommand{\headrulewidth}{0.75pt}
       \renewcommand{\footrulewidth}{0pt}
     }
     % 注: 此命令等同于 \markboth{left}{right}
@@ -604,12 +609,13 @@
     % 通过这种方式, 我们可以很方便地设置页眉
   }
   {% 若未提供 header, 则取 title 为页眉
-    \thispagestyle{fancy}
+    \thispagestyle{fancy}%
+    \pagestyle{fancy}%
     \fancyhead{}
-    \fancyhead[RO,LE]{#3}
+    \fancyhead[RO,LE]{\wuhao #3}
     \fancyfoot{}
     \fancyfoot[C]{\songti\wuhao\thepage}
-    \renewcommand{\headrulewidth}{0.4pt}
+    \renewcommand{\headrulewidth}{0.75pt}
     \renewcommand{\footrulewidth}{0pt}
   }
 }
@@ -630,18 +636,19 @@
 
 
 % 调整目录特殊要求, 重定义缩进量
-% 研究生学位论文写作指南中规定: 目录中的章标题行居左书写, 一级节标题行缩进 1 个汉字符(2个字符), 二级节标题行缩进 2 个汉字符(4个字符)
+% 参考示例(2025): 目录中的章标题行居左书写, 一级节标题行首行缩进1个汉字(12pt), 二级节标题行首行缩进2个汉字(24pt)
+% 注: 参考示例中条目行距为18磅, 此处 \xiaosi[1.5] 即 12bp*1.5=18bp
 \RequirePackage{titletoc}
 \contentsmargin{0em}
 \titlecontents{chapter}[0em]{\filright}%
-    {\songti\xiaosi\thecontentslabel\enspace}%
-        {\songti\xiaosi}{\dotfill\contentspage}[\addvspace{0pt}]
+    {\songti\xiaosi[1.5]\thecontentslabel\enspace}%
+        {\songti\xiaosi[1.5]}{\dotfill\contentspage}[\addvspace{0pt}]
 \titlecontents{section}[1em]{\addvspace{0pt}}%
-    {\songti\xiaosi \thecontentslabel\enspace}%
-        {\songti\xiaosi}{\dotfill\contentspage}[\addvspace{0pt}]
+    {\songti\xiaosi[1.5] \thecontentslabel\enspace}%
+        {\songti\xiaosi[1.5]}{\dotfill\contentspage}[\addvspace{0pt}]
 \titlecontents{subsection}[2em]{\addvspace{0pt}}%
-    {\songti\xiaosi\thecontentslabel\enspace}%
-        {\songti\xiaosi}{\dotfill\contentspage}[\addvspace{0pt}]
+    {\songti\xiaosi[1.5]\thecontentslabel\enspace}%
+        {\songti\xiaosi[1.5]}{\dotfill\contentspage}[\addvspace{0pt}]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 论文摘要设置 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -678,16 +685,17 @@
   \tongji@chapter*[]{\tongji@cabstractname}[\rmfamily\xparameter@heading@cother{\tongji@cabstractname}] % no tocline
   \pagenumbering{Roman}
   \tongji@cabstract
-  \vskip12bp
+  % 关键词行: 摘要内容后另起一行, 首行缩进2字符, "关键词"三字加粗, 段前段后0磅 (指南4.4)
   \setbox0=\hbox{{\bfseries\heiti\tongji@ckeyword@title}}
-  \noindent\hangindent\wd0\hangafter1
+  \noindent\hangindent\wd0\hangafter1\hspace*{2\ccwd}%
     \box0\tongji@ckeywords
-  % \cleardoublepage % always openright for Abstract  
-  \tongji@chapter*[]{\tongji@eabstractname}[\rmfamily\xparameter@heading@eother{\tongji@eabstractname}] % no tocline
+  % \cleardoublepage % always openright for Abstract
+  % ABSTRACT 标题: Arial 三号 加粗 居中 (指南4.4), 故在标题内容中切换 \sffamily (西文为Arial)
+  \tongji@chapter*[]{\sffamily\tongji@eabstractname}[\rmfamily\xparameter@heading@eother{\tongji@eabstractname}] % no tocline
   \tongji@eabstract
-  \vskip12bp
+  % Key Words 行: 首行缩进2字符, "Key Words"两词加粗, 段前段后0磅 (指南4.4)
   \setbox0=\hbox{{\bfseries\tongji@ekeyword@title}}
-  \noindent\hangindent\wd0\hangafter1
+  \noindent\hangindent\wd0\hangafter1\hspace*{2\ccwd}%
     \box0\tongji@ekeywords}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -698,7 +706,7 @@
 % 基于清华模板, 利用 \pkg{enumitem} 改造环境定义
 \NewDocumentEnvironment{denotation}{O{3.5cm}}{%
   \tongji@chapter*{\tongji@denotationname}[\psfamily\xparameter@heading@cother{\tongji@denotationname}]
-  \vskip-30bp\xiaosi[1.6]\begin{tongji@denotation}[labelwidth=#1]
+  \vskip-30bp\wuhao[1.5]\begin{tongji@denotation}[labelwidth=#1]
 }{%
   \end{tongji@denotation}
   \clearpage
@@ -737,8 +745,8 @@
       \tongji@starttoc{#1}
       \clearpage}
   \titlecontents{#1}[0em]{\filright}%设定索引样式
-    {\songti\xiaosi\thecontentslabel\enspace}%
-      {\songti\xiaosi}{\dotfill\contentspage}[\addvspace{0pt}]
+    {\songti\xiaosi[1.5]\thecontentslabel\enspace}%
+      {\songti\xiaosi[1.5]}{\dotfill\contentspage}[\addvspace{0pt}]
   \contentsuse{#1}{\csname ext@#1\endcsname}
 }
 
@@ -787,8 +795,9 @@
 % 兼容参考文献的老命令
 \let\inlinecite\parencite
 
-% 文献列表字体
-\renewcommand{\bibfont}{\zihao{5}\songti }%宋体五号
+% 文献列表字体: 宋体五号, 行距16磅, 悬挂缩进2字符 (指南4.7)
+\renewcommand{\bibfont}{\songti\fontsize{10.5bp}{16bp}\selectfont}
+\setlength{\bibhang}{21bp}% 悬挂缩进2字符(五号字宽10.5bp*2)
 % \setlength{\bibitemsep}{0ex}
 \setlength{\bibnamesep}{0ex}
 \setlength{\bibinitsep}{0ex}
@@ -804,12 +813,16 @@
 
 % 设置文档环境
 \let\tongji@appendix\appendix
-\renewenvironment{appendix}{% 
+\renewenvironment{appendix}{%
   \ctexset{% 附录仍属于 mainmattertrue 才能正确编号成附录A 的形式,
     % 此处的 pagestyle 仍然会沿用我们前面设的 chapter 的 pagestyle, 而我们需要更改附录的页眉, 因此需要重新设置一下页眉
     chapter/pagestyle={tongji@headingappendix} % 保证首页的页眉正确
-    } 
+    }
   \pagestyle{tongji@headingappendix} % 保证附录非首页的页眉正确
+  % 附录中的公式、图、表编号采用 A1、A2 系列形式, 即编号中不含小数点 (指南2.9)
+  \renewcommand{\thefigure}{\Alph{chapter}\arabic{figure}}%
+  \renewcommand{\thetable}{\Alph{chapter}\arabic{table}}%
+  \renewcommand{\theequation}{\Alph{chapter}\arabic{equation}}%
   \let\title\tongji@appendix@title
   \tongji@appendix}{%
   \let\title\@gobble \clearpage}

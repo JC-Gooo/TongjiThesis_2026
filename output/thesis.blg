@@ -1,0 +1,16 @@
+[0] Config.pm:329> INFO - This is Biber 2.22
+[0] Config.pm:332> INFO - Logfile is 'D:\别的\其他文件\毕设分析\模板\output\thesis.blg'
+[94] biber-MSWIN64:342> INFO - === 
+[125] Biber.pm:421> INFO - Reading 'D:\别的\其他文件\毕设分析\模板\output\thesis.bcf'
+[255] Biber.pm:1002> INFO - Found 6 citekeys in bib section 0
+[291] Biber.pm:4487> INFO - Processing section 0
+[302] Biber.pm:4680> INFO - Looking for bibtex file 'ref/refs.bib' for section 0
+[335] bibtex.pm:1713> INFO - LaTeX decoding ...
+[343] bibtex.pm:1519> INFO - Found BibTeX data source 'ref/refs.bib'
+[460] UCollate.pm:68> INFO - Overriding locale 'zh__pinyin' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[460] UCollate.pm:68> INFO - Overriding locale 'zh__pinyin' defaults 'variable = shifted' with 'variable = non-ignorable'
+[460] Biber.pm:4307> INFO - Sorting list 'none/global//global/global/global' of type 'entry' with template 'none' and locale 'zh__pinyin'
+[472] bbl.pm:676> INFO - Writing 'D:\别的\其他文件\毕设分析\模板\output\thesis.bbl' with encoding 'UTF-8'
+[476] bbl.pm:779> INFO - Output to D:\别的\其他文件\毕设分析\模板\output\thesis.bbl
+[476] Biber.pm:132> WARN - BibTeX subsystem: C:\Users\GAOJIN~1\AppData\Local\Temp\biber_tmp_4uiz\8fe4c9854184545302f21ebf0d47516c_34444.utf8, line 65, warning: 20 characters of junk seen at toplevel
+[476] Biber.pm:134> INFO - WARNINGS: 1
