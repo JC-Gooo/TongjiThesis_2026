@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.5) (preloaded format=xelatex 2026.11.24)  25 NOV 2026 11:13
+This is XeTeX, Version 3.141592653-2.6-0.999998 (MiKTeX 26.5) (preloaded format=xelatex 2026.11.24)  26 NOV 2026 11:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2476,7 +2476,7 @@ LaTeX Info: Redefining \min on input line 129.
 )
 \@quotelevel=\count632
 \@quotereset=\count633
- (D:\别的\其他文件\毕设分析\模板\output\thesis.aux)
+ (D:\别的\其他文件\毕设分析\模板\TongjiThesis_2026\output\thesis.aux)
 \openout1 = `thesis.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 26.
@@ -2543,7 +2543,7 @@ Package biblatex Info: Automatic encoding selection.
 
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'thesis.bbl' found.
- (D:\别的\其他文件\毕设分析\模板\output\thesis.bbl
+ (D:\别的\其他文件\毕设分析\模板\TongjiThesis_2026\output\thesis.bbl
 
 Package fontspec Info: 
 (fontspec)             Font family 'SimSun.ttf(3)' created for font
@@ -2571,7 +2571,8 @@ Package biblatex Info: Reference section=0 on input line 26.
 Package biblatex Info: Reference segment=0 on input line 26.
 Package hyperref Info: Link coloring OFF on input line 26.
 
-(D:\别的\其他文件\毕设分析\模板\output\thesis.out) (D:\别的\其他文件\毕设分析\模板\output\thesis.out)
+(D:\别的\其他文件\毕设分析\模板\TongjiThesis_2026\output\thesis.out)
+(D:\别的\其他文件\毕设分析\模板\TongjiThesis_2026\output\thesis.out)
 \@outlinefile=\write5
 \openout5 = `thesis.out'.
 
@@ -2593,11 +2594,11 @@ Package hyperref Info: Link coloring OFF on input line 26.
 * \textheight=700.50684pt
 * \oddsidemargin=17.92523pt
 * \evensidemargin=17.92523pt
-* \topmargin=-31.36441pt
+* \topmargin=-16.569pt
 * \headheight=16.0pt
-* \headsep=15.36446pt
+* \headsep=0.56905pt
 * \topskip=12.0pt
-* \footskip=22.76219pt
+* \footskip=30.44443pt
 * \marginparwidth=0.0pt
 * \marginparsep=0.0pt
 * \columnsep=10.0pt
@@ -2767,8 +2768,6 @@ Overfull \hbox (36.15073pt too wide) in paragraph at lines 34--34
 
 
 
-] [2
-
 ]
 File: figures/tongji-whole-logo.pdf Graphic file (type pdf)
 <use figures/tongji-whole-logo.pdf>
@@ -2782,16 +2781,17 @@ Overfull \hbox (19.73785pt too wide) in paragraph at lines 34--34
  [] 
  []
 
-[3] [4
+[2
 
 ] [1
+
 
 
 
 ] [2
 
 
-] (D:\别的\其他文件\毕设分析\模板\output\thesis.toc
+] (D:\别的\其他文件\毕设分析\模板\TongjiThesis_2026\output\thesis.toc
 Overfull \hbox (12.7096pt too wide) detected at line 1
  []\TU/times.ttf(0)/m/n/12.045 IV[]
  []
@@ -2971,7 +2971,7 @@ File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 
 
 
-] (D:\别的\其他文件\毕设分析\模板\output\thesis.lof
+] (D:\别的\其他文件\毕设分析\模板\TongjiThesis_2026\output\thesis.lof
 LaTeX Font Info:    Font shape `U/libusbb/m/n' will be
 (Font)              scaled to size 12.045pt on input line 1.
 LaTeX Font Info:    Font shape `U/libusbb/m/n' will be
@@ -3018,7 +3018,7 @@ Overfull \hbox (6.0225pt too wide) detected at line 4
 
 
 
-] (D:\别的\其他文件\毕设分析\模板\output\thesis.lot
+] (D:\别的\其他文件\毕设分析\模板\TongjiThesis_2026\output\thesis.lot
 Overfull \hbox (6.0225pt too wide) detected at line 1
  [][]\TU/times.ttf(0)/m/n/12.045 4[]
  []
@@ -3031,7 +3031,7 @@ Overfull \hbox (6.0225pt too wide) detected at line 1
 
 
 
-] (D:\别的\其他文件\毕设分析\模板\output\thesis.loa
+] (D:\别的\其他文件\毕设分析\模板\TongjiThesis_2026\output\thesis.loa
 Overfull \hbox (6.0225pt too wide) detected at line 1
  [][]\TU/times.ttf(0)/m/n/12.045 5[]
  []
@@ -3044,7 +3044,7 @@ Overfull \hbox (6.0225pt too wide) detected at line 1
 
 
 
-] (D:\别的\其他文件\毕设分析\模板\output\thesis.loe
+] (D:\别的\其他文件\毕设分析\模板\TongjiThesis_2026\output\thesis.loe
 Overfull \hbox (6.0225pt too wide) detected at line 1
  [][]\TU/times.ttf(0)/m/n/12.045 1[]
  []
@@ -3183,7 +3183,7 @@ File: data/statements-scan.pdf Graphic file (type pdf)
 \tf@thm=\write11
 \openout11 = `thesis.thm'.
 
- (D:\别的\其他文件\毕设分析\模板\output\thesis.aux)
+ (D:\别的\其他文件\毕设分析\模板\TongjiThesis_2026\output\thesis.aux)
  ***********
 LaTeX2e <2026-11-01>
 L3 programming layer <2026/08/21>
@@ -3196,11 +3196,12 @@ Package logreq Info: Writing requests to 'thesis.run.xml'.
  ) 
 Here is how much of TeX's memory you used:
  49311 strings out of 402429
- 1093953 string characters out of 5431703
- 2050208 words of memory out of 5000000
+ 1094187 string characters out of 5431703
+ 2050216 words of memory out of 5000000
  77753 multiletter control sequences out of 15000+600000
  663900 words of font info for 249 fonts, out of 8000000 for 9000
  1349 hyphenation exceptions out of 8191
  112i,22n,126p,1220b,5406s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on D:\别的\其他文件\毕设分析\模板\output\thesis.pdf (30 pages).
+Output written on D:\别的\其他文件\毕设分析\模板\TongjiThesis_2026\output\thesis.pdf (28 pa
+ges).

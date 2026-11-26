@@ -258,8 +258,10 @@
 	nomarginpar, % 即\marginparwidth=0pt and \marginparsep=0pt
 	left=31.7mm, % 注意left=right
 	headheight=16pt,
-	headsep=5.4mm,	% 页眉距顶端要求 2cm. 即25.4-20=5.4
-	footskip=8mm}	% 页脚距底端要求 1.5cm, 即25.4-15=10.4, 此处取8mm兼顾版面(原为5.4mm)
+	headsep=0.2mm,	% 页眉位置: 实测 Word 示例页眉墨迹顶距页顶20.7mm(即"页眉2.0cm"的实际落点),
+			% headsep=0.2mm 时模板页眉墨迹顶约20.7mm, 与示例逐页对齐(示例自身波动±0.2mm)
+	footskip=10.7mm} % 页脚位置: 实测 Word 示例页码墨迹底距页底14.7mm(即"页脚1.5cm"的实际落点),
+			% footskip=10.7mm 时模板页码墨迹底约14.7mm, 与示例逐页对齐
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 文章字体设置 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -684,7 +686,7 @@
   \cleardoublepage % always openright for Abstract
   \tongji@chapter*[]{\tongji@cabstractname}[\rmfamily\xparameter@heading@cother{\tongji@cabstractname}] % no tocline
   \pagenumbering{Roman}
-  \tongji@cabstract
+  \tongji@cabstract\par
   % 关键词行: 摘要内容后另起一行, 首行缩进2字符, "关键词"三字加粗, 段前段后0磅 (指南4.4)
   \setbox0=\hbox{{\bfseries\heiti\tongji@ckeyword@title}}
   \noindent\hangindent\wd0\hangafter1\hspace*{2\ccwd}%
@@ -692,7 +694,7 @@
   % \cleardoublepage % always openright for Abstract
   % ABSTRACT 标题: Arial 三号 加粗 居中 (指南4.4), 故在标题内容中切换 \sffamily (西文为Arial)
   \tongji@chapter*[]{\sffamily\tongji@eabstractname}[\rmfamily\xparameter@heading@eother{\tongji@eabstractname}] % no tocline
-  \tongji@eabstract
+  \tongji@eabstract\par
   % Key Words 行: 首行缩进2字符, "Key Words"两词加粗, 段前段后0磅 (指南4.4)
   \setbox0=\hbox{{\bfseries\tongji@ekeyword@title}}
   \noindent\hangindent\wd0\hangafter1\hspace*{2\ccwd}%
@@ -1029,10 +1031,11 @@
   \pdfbookmark[-1]{\tongji@ctitle}{ctitle}
   \normalsize%
   \begin{titlepage}
+    % 注: 封面部分( 中/英文封面 )为单面印刷( 指南4.7 ), 各占一页紧接排版, 不插入空白页
     \chicover
-    \cleardoublepage
+    \clearpage
     \engcover
-    \cleardoublepage
+    \clearpage
   \end{titlepage}
   \normalsize
   \tongji@makeabstract
